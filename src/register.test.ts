@@ -8,7 +8,7 @@ import {
 } from './index';
 import type { AlpineDataFactory, AlpineLike, HtmxLike } from './types';
 
-describe('admin-alpine', () => {
+describe('admin-toolkit Alpine helpers', () => {
   it('registers prefixed data providers', () => {
     const registered = new Map<string, AlpineDataFactory>();
     const alpine: AlpineLike = {
