@@ -5,8 +5,8 @@ import {
   type DismissibleOptions,
   type DisclosureOptions,
   type ToastItem,
-} from './behaviors.ts';
-import type { AdminAlpineRegistrationOptions, AlpineLike } from './types.ts';
+} from './behaviors.js';
+import type { AdminAlpineRegistrationOptions, AlpineLike } from './types.js';
 
 function nameWithPrefix(prefix: string, name: string) {
   return `${prefix}${name.charAt(0).toUpperCase()}${name.slice(1)}`;

@@ -1,4 +1,4 @@
-import { createDisclosure, createDismissible, createToastStack, } from "./behaviors.js";
+import { createDisclosure, createDismissible, createToastStack, } from './behaviors.js';
 function nameWithPrefix(prefix, name) {
     return `${prefix}${name.charAt(0).toUpperCase()}${name.slice(1)}`;
 }

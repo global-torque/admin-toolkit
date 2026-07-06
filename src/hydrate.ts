@@ -1,4 +1,4 @@
-import type { AlpineLike, HtmxLike, HydrateOptions } from './types.ts';
+import type { AlpineLike, HtmxLike, HydrateOptions } from './types.js';
 
 export function hydrate(root: Element | DocumentFragment, options: HydrateOptions = {}): boolean {
   if (!options.alpine?.initTree) {
