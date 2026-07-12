@@ -1,5 +1,11 @@
 # @global-torque/admin-toolkit
 
+> [!CAUTION]
+> This default-branch source is a quarantined pre-0.2 bridge, not an approved
+> release candidate. Do not install it from GitHub, a branch, or npm. The 0.2
+> cutover remains blocked until its exact design-tokens release asset exists,
+> real consumer verification passes, and the public release issue is approved.
+
 Prepare-next server-rendered HTML pattern and Alpine/htmx helper toolkit for
 Django/admin consumers.
 
@@ -7,11 +13,11 @@ The package records reusable markup contracts and small client-side behavior
 helpers. It does not render application data, own Django template includes,
 ship Vue components, read env config, or import private product packages.
 
-## Install
+## Installation Status
 
-```sh
-pnpm add @global-torque/admin-toolkit
-```
+There is no supported installation command for this source revision. Mutable
+GitHub and default-branch installs are prohibited. Wait for an approved
+immutable prerelease asset and its published checksum/provenance evidence.
 
 ## Usage
 
@@ -45,16 +51,16 @@ Django admin into a Vue SPA.
 
 ## Release Status
 
-Prepare-next. Do not publish to npm until package-specific contracts,
+Quarantined prepare-next source. Do not publish or install until package-specific contracts,
 attribution, admin consumer validation, Alpine integration checks, and visual
 verification gates pass.
 
 ## Support
 
 Use GitHub issues on `global-torque/admin-toolkit` for public package questions,
-bug reports, and behavior proposals. Internal Webdevelop or Django-admin
-integration problems should stay in the owning private repository until they are
-reduced to a generic package issue.
+bug reports, and behavior proposals. Host-application or Django-admin
+integration problems should stay in the owning private repository until they
+are reduced to a generic package issue.
 
 ## Security
 
