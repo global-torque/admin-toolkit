@@ -5,4 +5,3 @@ path = ["**"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2026 Global Torque"
 SPDX-License-Identifier = "MIT"
-
