@@ -1,0 +1,239 @@
+@import '@global-torque/design-tokens/css';
+
+.gt-alert,
+.gt-card,
+.gt-empty-state,
+.gt-toast,
+.gt-dialog {
+  color: var(--gt-color-foreground-default);
+  background: var(--gt-color-background-surface);
+  border: 1px solid var(--gt-color-border-default);
+  border-radius: var(--gt-primitive-radius-md);
+}
+
+.gt-alert,
+.gt-card,
+.gt-empty-state,
+.gt-dialog {
+  padding: var(--gt-primitive-spacing-4);
+}
+
+.gt-alert[data-tone='success'],
+.gt-badge[data-tone='success'],
+.gt-status[data-status='success'] {
+  color: var(--gt-color-positive-foreground);
+  background: var(--gt-color-positive-background);
+  border-color: var(--gt-color-positive-border);
+}
+
+.gt-alert[data-tone='warning'],
+.gt-badge[data-tone='warning'],
+.gt-status[data-status='warning'] {
+  color: var(--gt-color-warning-foreground);
+  background: var(--gt-color-warning-background);
+  border-color: var(--gt-color-warning-border);
+}
+
+.gt-alert[data-tone='danger'],
+.gt-badge[data-tone='danger'],
+.gt-status[data-status='danger'] {
+  color: var(--gt-color-negative-foreground);
+  background: var(--gt-color-negative-background);
+  border-color: var(--gt-color-negative-border);
+}
+
+.gt-badge,
+.gt-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gt-primitive-spacing-1);
+}
+
+.gt-badge {
+  padding: var(--gt-primitive-spacing-1) var(--gt-primitive-spacing-2);
+  color: var(--gt-color-neutral-foreground);
+  background: var(--gt-color-neutral-background);
+  border-radius: var(--gt-primitive-radius-full);
+  font-size: var(--gt-primitive-font-size-sm);
+}
+
+.gt-status [data-gt-region='dot'] {
+  inline-size: var(--gt-primitive-spacing-2);
+  block-size: var(--gt-primitive-spacing-2);
+  background: currentcolor;
+  border-radius: var(--gt-primitive-radius-full);
+}
+
+.gt-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gt-primitive-spacing-2);
+  min-block-size: 2.5rem;
+  padding: var(--gt-primitive-spacing-2) var(--gt-primitive-spacing-4);
+  color: var(--gt-component-button-primary-foreground);
+  background: var(--gt-component-button-primary-background);
+  border: 1px solid transparent;
+  border-radius: var(--gt-primitive-radius-md);
+  font: inherit;
+  font-weight: var(--gt-primitive-font-weight-medium);
+  cursor: pointer;
+}
+
+.gt-button:hover:not(:disabled) {
+  background: var(--gt-component-button-primary-background-hover);
+}
+
+.gt-button:focus-visible {
+  outline: 3px solid var(--gt-component-button-focus-ring);
+  outline-offset: 2px;
+}
+
+.gt-tabs [role='tab']:focus-visible,
+.gt-dialog :focus-visible {
+  outline: 3px solid var(--gt-color-border-focus);
+  outline-offset: 2px;
+}
+
+.gt-button:disabled {
+  color: var(--gt-component-button-disabled-foreground);
+  background: var(--gt-component-button-disabled-background);
+  cursor: not-allowed;
+}
+
+.gt-card {
+  box-shadow: var(--gt-primitive-shadow-sm);
+}
+
+.gt-empty-state {
+  color: var(--gt-color-foreground-muted);
+  text-align: center;
+  background: var(--gt-color-background-subtle);
+}
+
+.gt-progress {
+  overflow: hidden;
+  inline-size: 100%;
+  block-size: var(--gt-primitive-spacing-2);
+  background: var(--gt-color-background-subtle);
+  border-radius: var(--gt-primitive-radius-full);
+}
+
+.gt-progress [data-gt-region='bar'] {
+  display: block;
+  block-size: 100%;
+  background: var(--gt-color-accent-background);
+}
+
+.gt-table {
+  inline-size: 100%;
+  color: var(--gt-color-foreground-default);
+  background: var(--gt-color-background-surface);
+  border-collapse: collapse;
+}
+
+.gt-table caption,
+.gt-table th,
+.gt-table td {
+  padding: var(--gt-primitive-spacing-3);
+  text-align: start;
+  border-block-end: 1px solid var(--gt-color-border-default);
+}
+
+.gt-table thead {
+  background: var(--gt-color-background-subtle);
+}
+
+.gt-tabs [role='tablist'] {
+  display: flex;
+  gap: var(--gt-primitive-spacing-2);
+  border-block-end: 1px solid var(--gt-color-border-default);
+}
+
+.gt-tabs [role='tab'] {
+  padding: var(--gt-primitive-spacing-2) var(--gt-primitive-spacing-3);
+  color: var(--gt-color-foreground-muted);
+  background: transparent;
+  border: 0;
+  border-block-end: 2px solid transparent;
+}
+
+.gt-tabs [role='tab'][aria-selected='true'] {
+  color: var(--gt-color-foreground-default);
+  border-block-end-color: var(--gt-color-accent-background);
+}
+
+.gt-tabs [role='tabpanel'] {
+  padding-block: var(--gt-primitive-spacing-4);
+}
+
+.gt-toast-region {
+  display: grid;
+  position: fixed;
+  z-index: 40;
+  inset-block-start: var(--gt-primitive-spacing-4);
+  inset-inline-end: var(--gt-primitive-spacing-4);
+  gap: var(--gt-primitive-spacing-2);
+  max-inline-size: min(24rem, calc(100vw - 2rem));
+}
+
+.gt-toast {
+  padding: var(--gt-primitive-spacing-3);
+  color: var(--gt-component-toast-neutral-foreground);
+  background: var(--gt-component-toast-neutral-background);
+  box-shadow: var(--gt-primitive-shadow-md);
+}
+
+.gt-toast[data-tone='success'] {
+  color: var(--gt-component-toast-positive-foreground);
+  background: var(--gt-component-toast-positive-background);
+  border-color: var(--gt-color-positive-border);
+}
+
+.gt-toast[data-tone='danger'] {
+  color: var(--gt-component-toast-negative-foreground);
+  background: var(--gt-component-toast-negative-background);
+  border-color: var(--gt-color-negative-border);
+}
+
+.gt-toast[data-tone='warning'] {
+  color: var(--gt-color-warning-foreground);
+  background: var(--gt-color-warning-background);
+  border-color: var(--gt-color-warning-border);
+}
+
+.gt-dialog {
+  position: fixed;
+  z-index: 50;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  inline-size: min(32rem, calc(100vw - 2rem));
+  max-block-size: calc(100vh - 2rem);
+  overflow: auto;
+  color: var(--gt-component-dialog-foreground);
+  background: var(--gt-component-dialog-background);
+  box-shadow:
+    0 0 0 100vmax var(--gt-component-dialog-overlay),
+    var(--gt-primitive-shadow-md);
+  transform: translate(-50%, -50%);
+}
+
+.gt-dialog[hidden],
+.gt-tabs [role='tabpanel'][hidden] {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .gt-alert,
+  .gt-button,
+  .gt-toast,
+  .gt-dialog {
+    transition:
+      color var(--gt-primitive-duration-fast)
+        var(--gt-primitive-easing-standard),
+      background-color var(--gt-primitive-duration-fast)
+        var(--gt-primitive-easing-standard),
+      border-color var(--gt-primitive-duration-fast)
+        var(--gt-primitive-easing-standard);
+  }
+}

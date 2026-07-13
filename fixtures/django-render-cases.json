@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "django": "5.2.16",
+  "cases": [
+    {
+      "id": "alert",
+      "context": {
+        "tone": "warning",
+        "title": "Review <account>",
+        "message": "Owner's email & phone",
+        "dismiss_label": "Close",
+        "dismissible": true
+      },
+      "expected": "<div class=\"gt-alert\" role=\"status\" data-tone=\"warning\" x-data=\"gtDismissible\" x-show=\"visible\">\n  <strong data-gt-region=\"title\">Review &lt;account&gt;</strong>\n  <p data-gt-region=\"message\">Owner&#x27;s email &amp; phone</p>\n  <button data-gt-region=\"dismiss\" type=\"button\" aria-label=\"Dismiss notification\" x-on:click=\"dismiss\">Close</button>\n</div>"
+    },
+    {
+      "id": "badge",
+      "context": {
+        "tone": "success",
+        "label": "Approved & verified"
+      },
+      "expected": "<span class=\"gt-badge\" data-tone=\"success\"><span data-gt-region=\"label\">Approved &amp; verified</span></span>"
+    },
+    {
+      "id": "button",
+      "context": {
+        "button_type": "submit",
+        "variant": "primary",
+        "disabled": true,
+        "icon": "✓",
+        "label": "Save & continue"
+      },
+      "expected": "<button class=\"gt-button\" type=\"submit\" data-variant=\"primary\" disabled><span data-gt-region=\"icon\" aria-hidden=\"true\">✓</span><span data-gt-region=\"label\">Save &amp; continue</span></button>"
+    },
+    {
+      "id": "card",
+      "context": {
+        "card_id": "account-card",
+        "density": "compact",
+        "title": "Account summary",
+        "body": "<p>No action is required.</p>",
+        "footer": "Updated moments ago"
+      },
+      "expected": "<section class=\"gt-card\" aria-labelledby=\"account-card-title\" data-density=\"compact\">\n  <h2 id=\"account-card-title\" data-gt-region=\"heading\">Account summary</h2>\n  <div data-gt-region=\"body\">&lt;p&gt;No action is required.&lt;/p&gt;</div>\n  <footer data-gt-region=\"footer\">Updated moments ago</footer>\n</section>"
+    },
+    {
+      "id": "empty-state",
+      "context": {
+        "empty_id": "records-empty",
+        "title": "No records yet",
+        "message": "Create a record to begin.",
+        "action_href": "/records/new",
+        "action_label": "Create record"
+      },
+      "expected": "<section class=\"gt-empty-state\" id=\"records-empty\" aria-labelledby=\"records-empty-title\" data-state=\"empty\">\n  <h2 id=\"records-empty-title\" data-gt-region=\"heading\">No records yet</h2>\n  <p data-gt-region=\"message\">Create a record to begin.</p>\n  <a data-gt-region=\"action\" href=\"/records/new\">Create record</a>\n</section>"
+    },
+    {
+      "id": "progress",
+      "context": {
+        "label": "Import progress",
+        "value": 67,
+        "value_label": "67%"
+      },
+      "expected": "<div class=\"gt-progress-group\"><div class=\"gt-progress\" role=\"progressbar\" aria-label=\"Import progress\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"67\"><span data-gt-region=\"bar\" style=\"width: 67%\"></span></div><span data-gt-region=\"label\">67%</span></div>"
+    },
+    {
+      "id": "status-indicator",
+      "context": {
+        "status": "danger",
+        "label": "Action required"
+      },
+      "expected": "<span class=\"gt-status\" data-status=\"danger\" role=\"status\"><span data-gt-region=\"dot\" aria-hidden=\"true\"></span><span data-gt-region=\"label\">Action required</span></span>"
+    },
+    {
+      "id": "table",
+      "context": {
+        "sort_label": "Sort recent records",
+        "caption": "Recent records",
+        "columns": [
+          {
+            "id": "name",
+            "label": "Name",
+            "aria_sort": "descending"
+          },
+          {
+            "id": "status",
+            "label": "Status"
+          }
+        ],
+        "rows": [],
+        "empty_label": "No records"
+      },
+      "expected": "<form class=\"gt-table-form\" method=\"get\" aria-label=\"Sort recent records\">\n  <table class=\"gt-table\">\n    <caption>Recent records</caption>\n    <thead><tr><th scope=\"col\" aria-sort=\"descending\"><button data-gt-sort type=\"submit\" name=\"sort\" value=\"name\">Name</button></th><th scope=\"col\"><button data-gt-sort type=\"submit\" name=\"sort\" value=\"status\">Status</button></th></tr></thead>\n    <tbody><tr><td colspan=\"2\">No records</td></tr></tbody>\n  </table>\n</form>"
+    },
+    {
+      "id": "tabs",
+      "context": {
+        "tabs_id": "record-tabs",
+        "tabs_label": "Record sections",
+        "active_tab_id": "history",
+        "tabs": [
+          {
+            "id": "overview",
+            "label": "Overview",
+            "content": "Overview & summary",
+            "disabled": true
+          },
+          {
+            "id": "history",
+            "label": "History",
+            "content": "<strong>No history</strong>",
+            "disabled": false
+          }
+        ]
+      },
+      "expected": "<div class=\"gt-tabs\" x-data=\"gtTabs(['overview', 'history'], 'history', ['overview',])\">\n  <div role=\"tablist\" aria-label=\"Record sections\"><button id=\"record-tabs-tab-overview\" type=\"button\" role=\"tab\" data-gt-tab-id=\"overview\" aria-selected=\"false\" aria-controls=\"record-tabs-panel-overview\" tabindex=\"-1\" disabled x-ref=\"tab-overview\" x-bind:aria-selected=\"active === 'overview'\" x-bind:tabindex=\"active === 'overview' ? 0 : -1\" x-on:click=\"select('overview', disabledIn($root))\" x-on:keydown.right.prevent=\"next(disabledIn($root)); $nextTick(() => active && $refs['tab-' + active] && $refs['tab-' + active].focus())\" x-on:keydown.left.prevent=\"previous(disabledIn($root)); $nextTick(() => active && $refs['tab-' + active] && $refs['tab-' + active].focus())\" x-on:keydown.home.prevent=\"first(disabledIn($root)); $nextTick(() => active && $refs['tab-' + active] && $refs['tab-' + active].focus())\" x-on:keydown.end.prevent=\"last(disabledIn($root)); $nextTick(() => active && $refs['tab-' + active] && $refs['tab-' + active].focus())\">Overview</button><button id=\"record-tabs-tab-history\" type=\"button\" role=\"tab\" data-gt-tab-id=\"history\" aria-selected=\"true\" aria-controls=\"record-tabs-panel-history\" x-ref=\"tab-history\" x-bind:aria-selected=\"active === 'history'\" x-bind:tabindex=\"active === 'history' ? 0 : -1\" x-on:click=\"select('history', disabledIn($root))\" x-on:keydown.right.prevent=\"next(disabledIn($root)); $nextTick(() => active && $refs['tab-' + active] && $refs['tab-' + active].focus())\" x-on:keydown.left.prevent=\"previous(disabledIn($root)); $nextTick(() => active && $refs['tab-' + active] && $refs['tab-' + active].focus())\" x-on:keydown.home.prevent=\"first(disabledIn($root)); $nextTick(() => active && $refs['tab-' + active] && $refs['tab-' + active].focus())\" x-on:keydown.end.prevent=\"last(disabledIn($root)); $nextTick(() => active && $refs['tab-' + active] && $refs['tab-' + active].focus())\">History</button></div>\n  <section id=\"record-tabs-panel-overview\" role=\"tabpanel\" aria-labelledby=\"record-tabs-tab-overview\" hidden x-show=\"active === 'overview'\" x-bind:hidden=\"active !== 'overview'\">Overview &amp; summary</section><section id=\"record-tabs-panel-history\" role=\"tabpanel\" aria-labelledby=\"record-tabs-tab-history\" x-show=\"active === 'history'\" x-bind:hidden=\"active !== 'history'\">&lt;strong&gt;No history&lt;/strong&gt;</section>\n</div>"
+    },
+    {
+      "id": "toast",
+      "context": {
+        "toasts": [
+          {
+            "id": "notice",
+            "title": "Notice",
+            "message": "Review this record.",
+            "tone": "info"
+          },
+          {
+            "id": "queued",
+            "message": "The job is queued."
+          }
+        ]
+      },
+      "expected": "<section class=\"gt-toast-region\" aria-label=\"Notifications\" tabindex=\"-1\" x-data=\"gtToastStack([{ id: 'notice', message: 'Review this record.', title: 'Notice', tone: 'info' }, { id: 'queued', message: 'The job is queued.' }])\">\n  <template x-for=\"toast in toasts\" x-bind:key=\"toast.id\">\n    <div class=\"gt-toast\" role=\"status\" data-toast-id=\"toast-template\" data-tone=\"neutral\" x-bind:role=\"toast.tone === 'danger' ? 'alert' : 'status'\" x-bind:data-toast-id=\"toast.id\" x-bind:data-tone=\"toast.tone || 'neutral'\" x-on:keydown.escape.stop=\"([...$root.querySelectorAll('.gt-toast:not([hidden]) [data-gt-region=dismiss]')].find((button) => !$el.contains(button)) || $root).focus(); $el.hidden = true; remove(toast.id)\">\n      <template x-if=\"toast.title\"><strong data-gt-region=\"title\" x-text=\"toast.title\"></strong></template>\n      <p data-gt-region=\"message\" x-text=\"toast.message\"></p>\n      <button data-gt-region=\"dismiss\" type=\"button\" aria-label=\"Dismiss notification\" x-bind:aria-label=\"'Dismiss ' + (toast.title || 'notification')\" x-on:click=\"([...$root.querySelectorAll('.gt-toast:not([hidden]) [data-gt-region=dismiss]')].find((button) => button !== $el) || $root).focus(); $el.closest('.gt-toast').hidden = true; remove(toast.id)\">Dismiss</button>\n    </div>\n  </template>\n</section>"
+    },
+    {
+      "id": "modal",
+      "context": {
+        "dialog_id": "confirm-dialog",
+        "title": "Confirm change",
+        "body": "<p>This action updates the record.</p>",
+        "confirm_label": "Confirm & save",
+        "cancel_label": "Cancel"
+      },
+      "expected": "<div class=\"gt-dialog\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"confirm-dialog-title\" hidden>\n  <h2 id=\"confirm-dialog-title\" data-gt-region=\"heading\">Confirm change</h2>\n  <div data-gt-region=\"body\">&lt;p&gt;This action updates the record.&lt;/p&gt;</div>\n  <div data-gt-region=\"footer\"><button type=\"submit\" data-gt-dialog-initial-focus>Confirm &amp; save</button><button type=\"button\" data-gt-dialog-close aria-label=\"Close dialog\">Cancel</button></div>\n</div>"
+    }
+  ]
+}

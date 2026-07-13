@@ -1,26 +1,83 @@
 {
   "name": "@global-torque/admin-toolkit",
-  "private": true,
-  "version": "0.1.0",
+  "private": false,
+  "version": "0.2.0-beta.3",
+  "description": "Versioned neutral admin HTML patterns with Alpine, htmx, dialog, and reference-style contracts.",
+  "keywords": [
+    "admin",
+    "django",
+    "accessibility",
+    "alpinejs",
+    "htmx"
+  ],
   "license": "MIT",
   "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.33.0",
+  "sideEffects": [
+    "./dist/styles.css"
+  ],
+  "dependencies": {
+    "tabbable": "6.4.0"
+  },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
-    "test:run": "vitest run",
-    "typecheck": "tsc --noEmit -p tsconfig.json"
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "node scripts/prepare-design-tokens.mjs && node scripts/build.mjs",
+    "browser:install": "playwright install --with-deps chromium",
+    "lint": "eslint --max-warnings=0 src scripts vitest.config.ts",
+    "format:check": "prettier --check \"src/**/*.{ts,css}\" \"scripts/**/*.mjs\" \"fixtures/**/*.json\" \".github/**/*.{yml,json,md}\" \"docs/{rfcs,ossf}/**/*.md\" \"*.{json,md,yaml}\"",
+    "format:write": "prettier --write \"src/**/*.{ts,css}\" \"scripts/**/*.mjs\" \"fixtures/**/*.json\" \".github/**/*.{yml,json,md}\" \"docs/{rfcs,ossf}/**/*.md\" \"*.{json,md,yaml}\"",
+    "test:django": "pnpm run build && node scripts/verify-django-fixtures.mjs",
+    "test:browser": "pnpm run build && node scripts/verify-chromium-tabs.mjs",
+    "test:run": "pnpm run test:django && vitest run",
+    "test:coverage": "pnpm run test:django && vitest run --coverage",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "api:check": "api-extractor run --verbose && api-extractor run --config api-extractor.styles.json --verbose",
+    "api:report:update": "pnpm run build && api-extractor run --local --verbose && api-extractor run --config api-extractor.styles.json --local --verbose",
+    "docs:api": "pnpm run api:report:update && api-documenter markdown --input temp/root --output docs/api && api-documenter markdown --input temp/styles --output docs/api-styles",
+    "docs:check": "pnpm run api:check && node scripts/verify-api-docs.mjs",
+    "package:lint": "publint && attw --pack . --profile esm-only",
+    "content:check": "node scripts/verify-public-content.mjs",
+    "ci": "pnpm run format:check && pnpm run lint && pnpm run typecheck && pnpm run test:coverage && pnpm run test:browser && pnpm run build && pnpm run docs:check && pnpm run package:lint && pnpm run content:check"
+  },
+  "peerDependencies": {
+    "@global-torque/design-tokens": ">=0.1.0-0 <0.2.0"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "0.18.5",
+    "@eslint/js": "^9.39.4",
+    "@global-torque/design-tokens": "0.1.0-beta.3",
+    "@microsoft/api-documenter": "7.30.7",
+    "@microsoft/api-extractor": "7.58.9",
+    "@playwright/test": "1.61.1",
+    "@types/jsdom": "27.0.0",
     "@types/node": "^25.5.0",
+    "@typescript-eslint/eslint-plugin": "^8.63.0",
+    "@typescript-eslint/parser": "^8.63.0",
+    "@vitest/coverage-v8": "4.1.7",
+    "alpinejs": "3.14.9",
+    "axe-core": "4.12.1",
+    "eslint": "9.39.4",
+    "htmx.org": "2.0.10",
+    "jsdom": "27.4.0",
+    "parse5": "8.0.1",
+    "prettier": "3.9.5",
+    "publint": "0.3.21",
     "typescript": "^6.0.2",
     "vitest": "4.1.7"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/global-torque/admin-toolkit.git"
+    "url": "git+https://github.com/global-torque/admin-toolkit.git"
   },
   "homepage": "https://github.com/global-torque/admin-toolkit#readme",
   "bugs": {
     "url": "https://github.com/global-torque/admin-toolkit/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
     "dist",
@@ -28,7 +85,11 @@
     "LICENSE",
     "NOTICE.md",
     "CHANGELOG.md",
-    "SECURITY.md"
+    "SECURITY.md",
+    "docs/api",
+    "docs/api-styles",
+    "etc/admin-toolkit.api.md",
+    "etc/admin-toolkit-styles.api.md"
   ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -41,21 +102,19 @@
       "types": "./dist/patterns.d.ts",
       "import": "./dist/patterns.js"
     },
-    "./behaviors": {
-      "types": "./dist/behaviors.d.ts",
-      "import": "./dist/behaviors.js"
+    "./alpine": {
+      "types": "./dist/alpine.d.ts",
+      "import": "./dist/alpine.js"
     },
-    "./hydrate": {
-      "types": "./dist/hydrate.d.ts",
-      "import": "./dist/hydrate.js"
+    "./htmx": {
+      "types": "./dist/htmx.d.ts",
+      "import": "./dist/htmx.js"
     },
-    "./register": {
-      "types": "./dist/register.d.ts",
-      "import": "./dist/register.js"
-    },
-    "./types": {
-      "types": "./dist/types.d.ts",
-      "import": "./dist/types.js"
+    "./styles": {
+      "types": "./dist/styles.d.ts",
+      "style": "./dist/styles.css",
+      "import": "./dist/styles.js",
+      "default": "./dist/styles.css"
     }
   }
 }
