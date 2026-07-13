@@ -20,7 +20,7 @@
     "./dist/styles.css"
   ],
   "dependencies": {
-    "tabbable": "6.4.0"
+    "tabbable": "6.5.0"
   },
   "scripts": {
     "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
