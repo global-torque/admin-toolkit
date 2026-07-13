@@ -177,4 +177,4 @@ jobs:
             --prerelease \
             --verify-tag \
             --title "${GITHUB_REF_NAME}" \
-            --notes "Immutable candidate from ${GITHUB_SHA}. This automated candidate path requires the named real-consumer gate and public release issue; the separately owner-authorized manual initial npm beta is not created by this workflow."
+            --notes "Immutable candidate from ${GITHUB_SHA}. Publish this draft only after the named real-consumer gate and public release issue are complete."
