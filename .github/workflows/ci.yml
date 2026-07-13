@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    permissions:
+      contents: read
+      pull-requests: read
+    uses: global-torque/.github/.github/workflows/public-package-ci.yml@45f495a745dda3721e3f2d6a5ca89e267784fa7a
+    with:
+      install-browser: true

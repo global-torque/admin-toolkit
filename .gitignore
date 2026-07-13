@@ -1,4 +1,9 @@
-node_modules/
-coverage/
-.turbo/
-*.tgz
+/coverage/
+/.django-venv/
+/dist/
+/node_modules/
+/release/
+/temp/
+.DS_Store
+.env
+.env.*
