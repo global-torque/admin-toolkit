@@ -1,8 +1,8 @@
 # RFC 0001: Public 0.2 contract
 
 - Status: Proposed
-- Target: `0.2.0-beta.3`
-- Last updated: 2026-07-13
+- Target: `0.2.0-beta.4`
+- Last updated: 2026-08-31
 
 ## External problem
 
@@ -19,18 +19,21 @@ Django authorization/data, Vue, app templates, broad htmx adoption, routes, dire
 
 ## Compatibility and release evidence
 
-i-djadmin must install the exact candidate and design-token peer through npm,
-then pass Tailwind, Vite, Django, modal/fragment, Unfold collision, and
+i-djadmin must install the exact standalone candidate through npm, then pass
+Tailwind, Vite, Django, modal/fragment, Unfold collision, and
 two-viewport visual gates before automated or stable promotion and before
 private fallback source is deleted. The organization owner separately
 authorized manual publication of the initial `0.2.0-beta.3` prerelease before
 that named-consumer gate.
 
-The initial beta is built and packed once from a clean protected source commit.
+The initial beta was built and packed once from a clean protected source commit.
 Its npm-format tarball, SHA-512 digest, per-file manifest, and source commit
-remain immutable. The later automated candidate path additionally requires a
-GitHub attestation and registry provenance. A failed candidate receives a new
-beta version; no tag or asset is replaced.
+remain immutable. The beta.4 source build uses the immutable
+`@global-torque/design-tokens@0.2.0` GitHub release asset and inlines its CSS;
+the packed candidate has no design-token runtime or peer dependency. The
+automated candidate path additionally requires a GitHub attestation and
+registry provenance. A failed candidate receives a new beta version; no tag or
+asset is replaced.
 
 ## Decision
 

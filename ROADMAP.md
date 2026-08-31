@@ -15,8 +15,10 @@ Promotion order:
 6. Configure npm trusted publishing, GitHub attestation, and registry provenance
    before automated or stable releases.
 
-The initial `0.2.0-beta.3` prerelease uses an owner-authorized authenticated npm
-publication from the retained artifact. The named-consumer gate is required
-before automated or stable promotion, not before this manual initial beta.
+The initial `0.2.0-beta.3` prerelease used an owner-authorized authenticated npm
+publication from the retained artifact. The `0.2.0-beta.4` candidate updates
+the reference-style build input to the immutable stable design-token `0.2.0`
+artifact without exposing it as a consumer dependency. The named-consumer gate
+is required before publishing that candidate or making a stable promotion.
 Deletion of private fallback source remains blocked until the named-consumer
 and public-evidence gates pass.

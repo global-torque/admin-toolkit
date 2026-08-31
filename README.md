@@ -1,7 +1,8 @@
 # @global-torque/admin-toolkit
 
-> **Public 0.2 prerelease:** install the exact beta version. The public API may
-> still change before the stable 0.2 release.
+> **Public 0.2 prerelease candidate:** this source targets `0.2.0-beta.4` and
+> must pass the release gates before publication. The public API may still
+> change before the stable 0.2 release.
 
 Versioned neutral contracts for server-rendered admin HTML, complete HTML and
 Django fixtures, accessible dialog behavior, Alpine registration, repeat-safe
@@ -14,26 +15,30 @@ with a hash-locked Django test environment.
 
 ## Compatibility
 
-| Contract      | Supported                                      |
-| ------------- | ---------------------------------------------- |
-| Runtime       | ESM-only, ES2022                               |
-| Node.js       | 22.x and 24.x; 26.x informational              |
-| Alpine        | 3.14.x (verified with 3.14.9)                  |
-| htmx          | 2.0.x (verified with 2.0.10)                   |
-| Design tokens | `>=0.1.0-0 <0.2.0`                             |
-| CSS           | Modern browsers with custom properties/`:is()` |
+| Contract  | Supported                                      |
+| --------- | ---------------------------------------------- |
+| Runtime   | ESM-only, ES2022                               |
+| Node.js   | 22.x and 24.x; 26.x informational              |
+| Alpine    | 3.14.x (verified with 3.14.9)                  |
+| htmx      | 2.0.x (verified with 2.0.10)                   |
+| Token CSS | Built from exact `0.2.0`; no runtime peer      |
+| CSS       | Modern browsers with custom properties/`:is()` |
 
-Install the exact reviewed npm prereleases:
+After `0.2.0-beta.4` is published from its reviewed artifact, install only the
+toolkit:
 
 ```sh
-pnpm add @global-torque/admin-toolkit@0.2.0-beta.3 @global-torque/design-tokens@0.1.0-beta.3
+pnpm add @global-torque/admin-toolkit@0.2.0-beta.4
 ```
 
-The source manifest pins the development copy of
-`@global-torque/design-tokens` to exact registry version `0.1.0-beta.3`; it
-never builds or imports a private sibling as a fallback. Release and consumer
-gates verify installed files against the retained SHA-512 manifest before
-running type, test, build, and i-djadmin commands.
+The source manifest pins its build-time copy of
+`@global-torque/design-tokens` to the immutable `v0.2.0` GitHub release asset;
+it never builds or imports a private sibling as a fallback. The stable token
+artifact preserves the generated values and public imports used by the prior
+beta.3 build input. The published stylesheet contains the generated token CSS,
+so consumers have no design-token dependency or peer-version guard. Release and
+consumer gates verify installed files against the retained SHA-512 manifest
+before running type, test, build, and i-djadmin commands.
 
 ## Public exports
 
@@ -140,19 +145,20 @@ return the exact removable listener and removes it through
 
 ## Reference styles
 
-Install the design-token peer and import the opt-in stylesheet:
+Import the opt-in stylesheet; no design-token peer is required:
 
 ```css
 @import '@global-torque/admin-toolkit/styles';
 ```
 
 All selectors use the `gt-` namespace to avoid broad Django/Unfold collisions.
-The built stylesheet deterministically inlines the exact peer token CSS, so the
-JavaScript URL facade also works as a standalone stylesheet without an
-unresolvable bare `@import`. It uses only public neutral tokens, explicit focus
-styles, logical properties, and reduced-motion-safe transitions. Hosts may
-replace it while retaining the HTML contract or import the design-token CSS
-separately when composing a larger Tailwind entrypoint.
+The built stylesheet deterministically inlines the exact build-time token CSS,
+so the JavaScript URL facade works as a standalone stylesheet without an
+unresolvable bare `@import` or runtime package dependency. It uses only public
+neutral tokens, explicit focus styles, logical properties, and
+reduced-motion-safe transitions. Hosts may replace it while retaining the HTML
+contract or import the design-token CSS separately when composing a larger
+Tailwind entrypoint.
 
 ## Django ownership and security
 
@@ -177,8 +183,8 @@ stable promotion and before private fallback source is deleted.
 - Replace `./hydrate` with `./htmx`; installation now returns unsubscribe and
   ignores duplicate roots unless forced.
 - Replace `./types` imports with the root export.
-- Add the design-token peer and import `./styles` explicitly when using the
-  reference presentation.
+- Import `./styles` explicitly when using the reference presentation; the token
+  CSS is already inlined and no peer dependency is required.
 
 ## Ownership, contribution, and rollback
 

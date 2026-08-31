@@ -21,8 +21,8 @@ importers:
         specifier: ^9.39.4
         version: 9.39.5
       '@global-torque/design-tokens':
-        specifier: 0.1.0-beta.3
-        version: 0.1.0-beta.3
+        specifier: https://github.com/global-torque/design-tokens/releases/download/v0.2.0/global-torque-design-tokens-0.2.0.tgz
+        version: https://github.com/global-torque/design-tokens/releases/download/v0.2.0/global-torque-design-tokens-0.2.0.tgz
       '@microsoft/api-documenter':
         specifier: 7.30.7
         version: 7.30.7(@types/node@25.9.5)
@@ -329,11 +329,13 @@ packages:
       '@noble/hashes':
         optional: true
 
-  '@global-torque/design-tokens@0.1.0-beta.3':
+  '@global-torque/design-tokens@https://github.com/global-torque/design-tokens/releases/download/v0.2.0/global-torque-design-tokens-0.2.0.tgz':
     resolution:
       {
-        integrity: sha512-yDVGxRXNX6s3o/8PzmyY54RMB/BQetQks2/BDUw8OIjz59FHBMaLtglZ9WzW8DsFWE8UM1ndt/pn22Xq8Qo71w==,
+        integrity: sha512-x9SwKmA8pRoFrAqgo8vOqRZmOFbKAzMDbsaUCLqBHrYUXVHuPrZDDLYQK3dpkO3wl9zU2Hf2wFrFB8aWCPXxSQ==,
+        tarball: https://github.com/global-torque/design-tokens/releases/download/v0.2.0/global-torque-design-tokens-0.2.0.tgz,
       }
+    version: 0.2.0
     engines: { node: '>=22' }
 
   '@humanfs/core@0.19.2':
@@ -2804,7 +2806,8 @@ snapshots:
 
   '@exodus/bytes@1.15.1': {}
 
-  '@global-torque/design-tokens@0.1.0-beta.3': {}
+  '@global-torque/design-tokens@https://github.com/global-torque/design-tokens/releases/download/v0.2.0/global-torque-design-tokens-0.2.0.tgz':
+    {}
 
   '@humanfs/core@0.19.2':
     dependencies:

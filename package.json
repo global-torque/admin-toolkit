@@ -1,7 +1,7 @@
 {
   "name": "@global-torque/admin-toolkit",
   "private": false,
-  "version": "0.2.0-beta.3",
+  "version": "0.2.0-beta.4",
   "description": "Versioned neutral admin HTML patterns with Alpine, htmx, dialog, and reference-style contracts.",
   "keywords": [
     "admin",
@@ -24,7 +24,7 @@
   },
   "scripts": {
     "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
-    "build": "node scripts/prepare-design-tokens.mjs && node scripts/build.mjs",
+    "build": "node scripts/build.mjs",
     "browser:install": "playwright install --with-deps chromium",
     "lint": "eslint --max-warnings=0 src scripts vitest.config.ts",
     "format:check": "prettier --check \"src/**/*.{ts,css}\" \"scripts/**/*.mjs\" \"fixtures/**/*.json\" \".github/**/*.{yml,json,md}\" \"docs/{rfcs,ossf}/**/*.md\" \"*.{json,md,yaml}\"",
@@ -42,13 +42,10 @@
     "content:check": "node scripts/verify-public-content.mjs",
     "ci": "pnpm run format:check && pnpm run lint && pnpm run typecheck && pnpm run test:coverage && pnpm run test:browser && pnpm run build && pnpm run docs:check && pnpm run package:lint && pnpm run content:check"
   },
-  "peerDependencies": {
-    "@global-torque/design-tokens": ">=0.1.0-0 <0.2.0"
-  },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.5",
     "@eslint/js": "^9.39.4",
-    "@global-torque/design-tokens": "0.1.0-beta.3",
+    "@global-torque/design-tokens": "https://github.com/global-torque/design-tokens/releases/download/v0.2.0/global-torque-design-tokens-0.2.0.tgz",
     "@microsoft/api-documenter": "7.30.7",
     "@microsoft/api-extractor": "7.58.9",
     "@playwright/test": "1.61.1",

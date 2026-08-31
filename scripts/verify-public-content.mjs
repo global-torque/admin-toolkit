@@ -155,10 +155,10 @@ const EXPECTED_EXPORT_SUBPATHS = new Map([
   ],
 ]);
 const EXPECTED_PACKAGE_VERSIONS = new Map([
-  ['@global-torque/admin-toolkit', '0.2.0-beta.3'],
+  ['@global-torque/admin-toolkit', '0.2.0-beta.4'],
   ['@global-torque/client-error-handling', '0.1.0-beta.4'],
   ['@global-torque/content-toolkit', '0.2.0-beta.8'],
-  ['@global-torque/design-tokens', '0.1.0-beta.3'],
+  ['@global-torque/design-tokens', '0.2.0'],
   ['@global-torque/markdown-it-wikilinks', '0.2.0-beta.4'],
   ['@global-torque/vitepress-toolkit', '0.2.0-beta.6'],
 ]);
@@ -205,10 +205,7 @@ const WORKSPACE_OVERRIDE_PACKAGES = new Set([
   '@global-torque/markdown-it-wikilinks',
 ]);
 const EXPECTED_RELEASE_DEPENDENCIES = new Map([
-  [
-    '@global-torque/admin-toolkit',
-    ['@global-torque/design-tokens@0.1.0-beta.3'],
-  ],
+  ['@global-torque/admin-toolkit', []],
   ['@global-torque/client-error-handling', []],
   ['@global-torque/content-toolkit', []],
   ['@global-torque/design-tokens', []],
