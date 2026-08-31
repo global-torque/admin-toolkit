@@ -83,6 +83,14 @@ jobs:
             sleep 5
           done
           exit 1
+      - name: Normalize attestation bundle filename
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          bundles=(release/sha512:*.jsonl)
+          test "${#bundles[@]}" -eq 1
+          mv "${bundles[0]}" "${bundles[0]/sha512:/sha512-}"
       - name: Verify offline attestation identity and provenance
         env:
           GH_TOKEN: ${{ github.token }}
@@ -123,7 +131,6 @@ jobs:
           - npm
           - pnpm
         node:
-          - 22.23.1
           - 24.18.0
     steps:
       - name: Check out source

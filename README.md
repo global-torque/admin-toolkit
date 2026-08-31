@@ -18,7 +18,7 @@ with a hash-locked Django test environment.
 | Contract  | Supported                                      |
 | --------- | ---------------------------------------------- |
 | Runtime   | ESM-only, ES2022                               |
-| Node.js   | 22.x and 24.x; 26.x informational              |
+| Node.js   | 24.x (verified with 24.18.0)                   |
 | Alpine    | 3.14.x (verified with 3.14.9)                  |
 | htmx      | 2.0.x (verified with 2.0.10)                   |
 | Token CSS | Built from exact `0.2.0`; no runtime peer      |
