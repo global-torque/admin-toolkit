@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.0-beta.4 - 2026-08-31
+
+- Removed the unnecessary design-token peer dependency and duplicated
+  hardcoded version guard; the standalone published stylesheet already inlines
+  its token CSS.
+- Pinned source builds to the immutable `@global-torque/design-tokens@0.2.0`
+  GitHub release artifact while the exact version is unavailable from npm.
+- Verified that the stable token package preserves the exported subpaths,
+  generated CSS, theme CSS, and resolved token values consumed by this package.
+
 ## 0.2.0-beta.3 - 2026-07-13
 
 - Prepared the independently reviewed admin contracts and runtime helpers for
