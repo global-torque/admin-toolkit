@@ -575,8 +575,8 @@ function validateManifest(root, options) {
       `package.json publishConfig contains forbidden keys: ${unexpectedPublishConfigKeys.join(', ')}`,
     );
   }
-  if (manifest.engines?.node !== '>=22') {
-    errors.push('package.json must declare engines.node as >=22');
+  if (manifest.engines?.node !== '>=24') {
+    errors.push('package.json must declare engines.node as >=24');
   }
   if (!options.packed && manifest.packageManager !== 'pnpm@10.33.0') {
     errors.push('package.json must pin packageManager to pnpm@10.33.0');
@@ -798,7 +798,7 @@ function runPackedPolicySelfTest() {
     version: EXPECTED_PACKAGE_VERSIONS.get(EXPECTED_PACKAGE_NAME),
     license: 'MIT',
     publishConfig: { access: 'public' },
-    engines: { node: '>=22' },
+    engines: { node: '>=24' },
     sideEffects: EXPECTED_SIDE_EFFECTS.get(EXPECTED_PACKAGE_NAME),
     repository: {
       type: 'git',

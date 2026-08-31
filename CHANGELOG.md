@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Made Node.js 24 the sole required and documented package runtime; removed
+  Node.js 22 and informational Node.js 26 jobs from this repository's CI.
+
 ## 0.2.0-beta.4 - 2026-08-31
 
 - Removed the unnecessary design-token peer dependency and duplicated
