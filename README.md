@@ -1,8 +1,6 @@
 # @global-torque/admin-toolkit
 
-> **Public 0.2 prerelease candidate:** this source targets `0.2.0-beta.4` and
-> must pass the release gates before publication. The public API may still
-> change before the stable 0.2 release.
+> **Public release:** `0.2.0`. Install the versioned package from npm.
 
 Versioned neutral contracts for server-rendered admin HTML, complete HTML and
 Django fixtures, accessible dialog behavior, Alpine registration, repeat-safe
@@ -24,11 +22,10 @@ with a hash-locked Django test environment.
 | Token CSS | Built from exact `0.2.0`; no runtime peer      |
 | CSS       | Modern browsers with custom properties/`:is()` |
 
-After `0.2.0-beta.4` is published from its reviewed artifact, install only the
-toolkit:
+Install the toolkit:
 
 ```sh
-pnpm add @global-torque/admin-toolkit@0.2.0-beta.4
+pnpm add @global-torque/admin-toolkit@0.2.0
 ```
 
 The source manifest pins its build-time copy of

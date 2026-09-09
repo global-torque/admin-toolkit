@@ -155,7 +155,7 @@ const EXPECTED_EXPORT_SUBPATHS = new Map([
   ],
 ]);
 const EXPECTED_PACKAGE_VERSIONS = new Map([
-  ['@global-torque/admin-toolkit', '0.2.0-beta.4'],
+  ['@global-torque/admin-toolkit', '0.2.0'],
   ['@global-torque/client-error-handling', '0.1.0-beta.4'],
   ['@global-torque/content-toolkit', '0.2.0-beta.8'],
   ['@global-torque/design-tokens', '0.2.0'],
