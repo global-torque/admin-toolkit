@@ -1,6 +1,11 @@
 # Changelog
 
-## Unreleased
+## 0.2.0 - 2026-09-09
+
+- Release the reviewed public package with an ordinary version on npm.
+- Preserve the public API and behavior from 0.2.0-beta.4.
+- Resolve dependency advisories in fast-uri, brace-expansion, js-yaml,
+  nanoid, PostCSS, and Vitest using compatible patched versions.
 
 - Made Node.js 24 the sole required and documented package runtime; removed
   Node.js 22 and informational Node.js 26 jobs from this repository's CI.
